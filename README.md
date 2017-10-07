@@ -1,4 +1,4 @@
-# 我的 sliders
+# 我的 Sildes
 
 自己做的小工具, 可以直接把 markdown 文件转换成 revealjs 的 ppt 文件.
 
@@ -8,8 +8,8 @@
 
 ### 克隆项目(可以 fork 到自己的仓库)
 
-    git clone https://github.com/teddy-ma/sliders.git
-    cd sliders
+    git clone https://github.com/mjd507/Sildes.git
+    cd Sildes
 
 ### 安装依赖(确保 node 环境已安装)
 
