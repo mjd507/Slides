@@ -13,7 +13,7 @@
     "build": "node build.js",
     "preview": "node_modules/http-server/bin/http-server -a localhost -p 8000",
     "clean": "rimraf dist && mkdirp dist",
-    "watch": "npm-watch"
+    "watch": "npm-watch & npm run preview"
   },
   "author": "mjd507",
   "license": "MIT",
