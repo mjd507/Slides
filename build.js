@@ -57,8 +57,10 @@ function build_slider(md_files){
           var output = Mustache.render(data, view);
           mkdirp.sync(file_name);
           var target_path = file_name + "/index.html";
-          fs.writeFile(target_path, output);
-          home_items.push( { "path": target_path, "name": title } );
+          fs.writeFile(target_path, output, function(err, result) {
+             if(err) console.log('error', err);
+             home_items.push( { "path": target_path, "name": title } );
+          });
         });
       });
     }
@@ -83,7 +85,9 @@ fs.readdir('./src', function(err, files) {
           return console.log(err);
         }
         var output = Mustache.render(data, { sliders: home_items});
-        fs.writeFile('index.html', output);
+        fs.writeFile('index.html', output, function(err, result) {
+             if(err) console.log('error', err);
+        });
       });
     }
   });
