@@ -47,6 +47,7 @@ function build_slider(md_files){
         var title = data.split("\n")[0].replace("#", '').trim();
         var view = {
           title: title,
+          // prefix: "https://picturebook-s3.alo7.com/static/reveal.js/",
           prefix: "../../node_modules/reveal.js/",
           slides: slides
         };
