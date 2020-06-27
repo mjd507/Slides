@@ -13,7 +13,7 @@
 
 ## ZooKeeper 是什么
 
-### 中间层服务，专注分布式应用协作。
+### 中间件服务，专注分布式应用协作。
 
 ### 基础概念
 
@@ -76,7 +76,7 @@ set /path data
 - Leader 选举
 - Zab 协议
 - 请求处理链
-- 本地存储
+- 数据存储
 
 ### zxid
 
@@ -158,25 +158,40 @@ SyncRequestProcessor -> SendAckRequestProcessor
 
 ```
 
-### 本地存储
+### 数据存储
 
-SyncRequestProcessor
+
+#### 内存数据
+
+```
+持久节点: 
+ConcurrentHashMap<String, DataNode>();
+
+临时节点:
+ConcurrentHashMap<Long, HashSet<String>>();
+
+```
 
 #### 事务日志
 
 ```
-事务日志按顺序追加到文件中。
 
-使用组提交和补白提高运行效率。
+事务日志文件固定为为 64MB，使用 0 补充空余部分
+
+当不足 4kb 时，会预分配新的 64 MB 事务日志文件
+
+使用组提交，高并发写入情况下，每 1000 次提交刷一次磁盘
 
 ```
 
 #### 快照
 
 ```
-快照是将内存树序列化到文件。
+基于当前的 DataTree 内存数据，不一定是最新数据
 
-进行快照时不影响客户端请求，所以它是模糊的，不能准确反映当前的内存树。
+快照生成时机: countLog > snapCount/2 + randRoll(snapCount/2)
+
+使用「异步线程」生成快照
 
 ```
 
