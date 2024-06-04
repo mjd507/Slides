@@ -1,4 +1,7 @@
 node_modules
-dist
 .DS_Store
-package-lock.json
+dist
+*.local
+.vite-inspect
+.remote-assets
+components.d.ts

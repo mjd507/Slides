@@ -1,25 +1,11 @@
-## 使用方式
+# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
 
-    git clone https://github.com/mjd507/Sildes.git
-    cd Sildes
+To start the slide show:
 
-    npm install  // 安装依赖
+- `npm install`
+- `npm run dev`
+- visit http://localhost:3030
 
+Edit the [slides.md](./slides.md) to see the changes.
 
-### 编辑 
-
-在 `src` 目录下新建 `xxx.md` 文件
-
-    npm run build // 生成 html
-
-    npm run watch // 实时修改
-
-    npm run preview // 预览
-
-    npm run clean // 清理
-
-
-访问 <http://localhost:8000/>
-
-
-    
+Learn more about Slidev on [documentations](https://sli.dev/).
